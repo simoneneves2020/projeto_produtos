@@ -1,27 +1,49 @@
-# ProjetoProdutos
+inserir bootstrap no projeto
+https://getbootstrap.com
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+Vamos gerar dois componentes, para realizar
+o cadastro do produto, no backand que está nos
+aguardando...
 
-## Development server
+Criar componente
+ng g c cadastrar-produtos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+ng g c consultar-produtos
+inserimos as rotas para que os links possam chegar até o componente
 
-## Code scaffolding
+const routes: Routes = [
+  { path: 'cadastrar-produtos', component: CadastrarProdutosComponent },
+  { path: 'consultar-produtos', component: ConsultarProdutosComponent }
+]
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+fazendo o app.module reconhecer as rotas criadas
+  ],
+  imports: [
+   
+    RouterModule.forRoot(routes)
+  ]
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Modificar o menu para exibir as páginas beaseado nas ROTAS mapeadas
 
-## Running unit tests
+Para implementarmos a edição, precisamos
+criar uma página "Componente" novo para o projeto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ng g c editar-produtos
 
-## Running end-to-end tests
+vamos ao app.module.ts.. configurar a rota para a página de edição de produtos.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+
+
+
+
+
+
+
+

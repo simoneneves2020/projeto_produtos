@@ -1,0 +1,58 @@
+<h5>Cadastro de Produto</h5>
+<p>Preencha os campos para incluir um produto.</p>
+
+<form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+  <div *ngIf="mensagem" class="mb-3 alert alert-primary">
+    <strong>{{mensagem}}</strong>
+  </div>
+
+
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label>Nome do Produto:</label>
+      <input type="text" class="form-control" formControlName="nome" />
+      <div class="text-danger" *ngIf="form.nome.touched && form.nome.invalid">
+        <span *ngIf="form.nome.errors.required">
+          Porfavor, informe o nome do produto.
+        </span>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label>Preço: </label>
+      <input type="text" class="form-control" formControlName="preco" />
+      <div class="text-danger" *ngIf="form.preco.touched && form.preco.invalid">
+        <span *ngIf="form.preco.errors.required">
+          Porfavor, informe o preço do produto.
+        </span>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label>Quantidade:</label>
+      <input type="text" class="form-control" formControlName="quantidade" />
+      <div class="text-danger" *ngIf="form.quantidade.touched && form.quantidade.invalid">
+        <span *ngIf="form.quantidade.errors.required">
+          Porfavor, informe a quantidade do produto.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <label>Descrição do Produto:</label>
+      <input type="text" class="form-control" formControlName="descricao" />
+      <div class="text-danger" *ngIf="form.descricao.touched && form.descricao.invalid">
+        <span *ngIf="form.descricao.errors.required">
+          Porfavor, informe a descrição do produto.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12">
+
+      <input type="submit" [disabled]="!formCadastro.valid" class="btn btn-success" value="Realizar Cadastro" />
+    </div>
+  </div>
+
+</form>
